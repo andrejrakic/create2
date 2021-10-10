@@ -5,7 +5,7 @@ import { bytecode } from '../artifacts/contracts/Greeter/Greeter.sol/Greeter.jso
 const main = async () => {
 	await run('compile');
 
-	const deployerFactory = await ethers.getContractFactory(`Deployer`);
+	const deployerFactory = await ethers.getContractFactory(`DeployerV2`);
 	const deployer = await deployerFactory.deploy();
 	await deployer.deployed();
 

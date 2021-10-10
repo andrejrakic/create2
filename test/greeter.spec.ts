@@ -8,7 +8,7 @@ describe(`Greeter`, async function () {
 	let deployer: Contract;
 
 	beforeEach(async function () {
-		const deployerFactory = await ethers.getContractFactory(`Deployer`);
+		const deployerFactory = await ethers.getContractFactory(`DeployerV2`);
 		deployer = await deployerFactory.deploy();
 		await deployer.deployed();
 	});
@@ -17,12 +17,12 @@ describe(`Greeter`, async function () {
 		const salt = keccak256([0x12]);
 
 		// Precompute address using Deployer smart contract
-		const solAddr = await deployer.computeAddress(bytecode, salt);
+		const solidityPrecomputed = await deployer.computeAddress(salt);
 
 		// Precomupte address using ethers.js library
 		const initCodeHash = keccak256(bytecode);
-		const ethersAddr = getCreate2Address(deployer.address, salt, initCodeHash);
+		const ethersPrecomputed = getCreate2Address(deployer.address, salt, initCodeHash);
 
-		expect(solAddr).to.equal(ethersAddr);
+		expect(solidityPrecomputed).to.equal(ethersPrecomputed);
 	});
 });
