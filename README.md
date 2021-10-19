@@ -1,6 +1,38 @@
-## CREATE2
+# CREATE2
 
 Boilerplate repo for deploying smart contracts with precompiled addresses using CREATE2 opcode. Includes script to compute as much addresses as possible in order to find :sparkles: the special one :sparkles:
+
+## Getting Started
+
+### Prerequisites
+
+Be sure to have installed the following
+
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Node.js](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/getting-started/install) 
+
+### Installation
+
+1) Clone the repo
+```
+git clone https://github.com/andrejrakic/create2.git
+cd create2
+```
+2) Install packages
+```
+yarn install
+```
+3) Compile contracts
+```
+yarn compile
+```
+4) Run tests
+```
+yarn test
+```
+
+## Usage
 
 ### EIP-1014
 
